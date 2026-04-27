@@ -104,7 +104,7 @@ where $r$ is the Euclidean distance between input points, $l$ is the learned len
 
 Following ICH Q8 pharmaceutical analogy, the probabilistic design space is formally defined as:
 
-$$\mathcal{DS}_{p^*} = \left\{(\omega, v, d) : P\!\left(\tau(\omega, v, d) \geq \tau^*\right) \geq p^*\right\}$$
+$$\mathcal{DS}_{p^*} = \left\{(\omega, v, d) : P\!\left(\tau(\omega, v, d) \geq \tau^*\right) \geq p*\right\}$$
 
 where $\tau^*$ is the target shear strength and the probability is evaluated from the GPR predictive distribution $\mathcal{N}(\mu(\mathbf{x}),\, \sigma^2(\mathbf{x}))$.
 
@@ -138,8 +138,6 @@ FILE_PATH = 'your_data.xlsx'
 ```
 
 Your Excel file should contain columns for rotation speed (RPM), traverse speed (mm/min), plunge depth (mm), and measured shear/UTS strength (MPa). Column names are mapped at the top of that cell — adjust them to match your file headers.
-
-If you don't have your data ready, leave `Exp_data = False` to run the notebook end-to-end with representative synthetic data.
 
 ### Adjusting the Design Space Target
 
@@ -182,23 +180,6 @@ PLUNGE_FIXED  = 3.0   # mm — fix plunge depth for the 2D parameter map
 - Arlot, S. & Celisse, A. (2010). A survey of cross-validation procedures for model selection. *Statistics Surveys*, 4, 40–79.
 - Shahriari, B. et al. (2016). Taking the human out of the loop: A review of Bayesian optimization. *Proceedings of the IEEE*, 104(1), 148–175.
 - Shi, S. et al. (2023). Gaussian process regression for materials property prediction. *npj Computational Materials*.
-
----
-
-## 🔭 Broader Applicability
-
-Although developed for Al–Steel FSW, the framework is general. Any materials processing problem with:
-- **Small experimental datasets** ($n < 50$)
-- A **known physical mechanism** that can be encoded as a feature transform
-- A need for **continuous process maps with uncertainty quantification**
-
-...can be approached with the same pipeline. The log-transformation step would change to reflect the governing kinetics of that system, but everything else transfers directly.
-
----
-
-## 📝 Status
-
-This is an **active research project**. Experimental results and trained model weights from the real dataset are withheld pending publication. The notebook is shared to make the methodology transparent and reproducible on any compatible dataset.
 
 ---
 
